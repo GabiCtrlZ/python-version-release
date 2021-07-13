@@ -4,10 +4,25 @@ inputs:
   commit-message:
     description: 'the commit message'
     required: true
+  github_token:
+    description: 'Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}'
+    required: true
+  message:
+    description: 'Commit message.'
+    required: false
+    default: ''
+  branch:
+    description: 'Destination branch to push changes'
+    required: false
+    default: 'main'
+  empty:
+    description: 'Allow empty commit'
+    required: false
+    default: ''
 runs:
   using: "composite"
   steps:
     - run: echo "Hello ${{ inputs.commit-message }}."
       shell: bash
-    - run: ${{ github.action_path }}/release.sh "${{ inputs.commit-message }}"
+    - run: ${{ github.action_path }}/release.sh "${{ inputs.commit-message }}" "${{ inputs.github_token }}" "${{ inputs.message }}" "${{ inputs.branch }}" "${{ inputs.empty }}"
       shell: bash
