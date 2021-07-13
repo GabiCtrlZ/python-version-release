@@ -9,7 +9,7 @@ runs:
   steps:
     - run: echo "Hello ${{ inputs.commit-message }}."
       shell: bash
-    - run: ${{ github.action_path }}/release.sh
+    - run: ${{ github.action_path }}/release.sh "${{ inputs.commit-message }}"
       shell: bash
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
