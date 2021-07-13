@@ -7,7 +7,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: echo Hello ${{ inputs.commit-message }}.
+    - run: echo "Hello ${{ inputs.commit-message }}."
       shell: bash
     - run: ${{ github.action_path }}/release.sh
       shell: bash
