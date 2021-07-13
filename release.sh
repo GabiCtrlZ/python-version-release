@@ -74,7 +74,7 @@ git config --local user.name "${INPUT_AUTHOR_NAME}"
 
 git add -A
 
-git commit -m "{$INPUT_MESSAGE}" $_EMPTY || exit 0
+git commit -m "$INPUT_MESSAGE" $_EMPTY || exit 0
 
 if [ $changed == changed ]; then
   git tag -a -m "updating version to v$major.$minor.$micro" v$major.$minor.$micro
