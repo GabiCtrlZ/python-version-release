@@ -1,0 +1,13 @@
+name: 'Python version release'
+description: 'Updating the setup.py version automatically based on the commit message'
+inputs:
+  commit-message:
+    description: 'the commit message'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: echo Hello ${{ inputs.commit-message }}.
+      shell: bash
+    - run: ${{ github.action_path }}/release.sh
+      shell: bash
