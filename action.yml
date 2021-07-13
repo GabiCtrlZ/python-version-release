@@ -11,6 +11,3 @@ runs:
       shell: bash
     - run: ${{ github.action_path }}/release.sh "${{ inputs.commit-message }}"
       shell: bash
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: "chore(release): [skip ci]"
